@@ -30,7 +30,7 @@ export const Sidebar = () => {
             onClick={() => navigate('/')}
             className={`w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors text-sm font-medium ${
               location.pathname === '/' 
-                ? 'bg-blue-50 text-[#1967D2]' 
+                ? 'bg-blue-50 text-gcp-blue' 
                 : 'text-gray-700 hover:bg-gray-100'
             }`}
           >
@@ -40,7 +40,7 @@ export const Sidebar = () => {
           
           <button
             onClick={() => navigate('/ticket/new')}
-            className="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg bg-[#1967D2] hover:bg-[#1557B0] transition-colors text-white text-sm font-medium"
+            className="w-full flex items-center space-x-3 px-4 py-2.5 rounded-lg bg-gcp-blue hover:bg-gcp-blue-hover transition-colors text-white text-sm font-medium"
           >
             <Plus size={18} />
             <span>New Claim</span>
@@ -61,8 +61,8 @@ export const Sidebar = () => {
                 onClick={() => navigate(`/ticket/${ticket.id}`)}
                 className={`w-full text-left p-3 rounded-lg transition-colors ${
                   location.pathname === `/ticket/${ticket.id}`
-                    ? 'bg-blue-50 border-l-3 border-[#1967D2]'
-                    : 'hover:bg-gray-50 border-l-3 border-transparent'
+                    ? 'bg-blue-50 border-l-4 border-gcp-blue'
+                    : 'hover:bg-gray-50 border-l-4 border-transparent'
                 }`}
               >
                 <div className="flex items-start space-x-3">

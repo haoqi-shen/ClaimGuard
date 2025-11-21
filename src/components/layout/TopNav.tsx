@@ -4,7 +4,7 @@ export const TopNav = () => {
   return (
     <nav className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shadow-sm">
       <div className="flex items-center space-x-6">
-        <div className="text-xl font-medium text-[#1967D2]">ClaimGuard</div>
+        <div className="text-xl font-medium text-gcp-blue">ClaimGuard</div>
         <div className="text-sm text-gray-600">Expense Management</div>
       </div>
       

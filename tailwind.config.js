@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'gcp-blue': {
+          DEFAULT: '#1967D2',
+          hover: '#1557B0',
+        },
+      },
+    },
   },
   plugins: [],
 }

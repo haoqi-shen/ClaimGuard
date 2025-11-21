@@ -92,7 +92,7 @@ export const Dashboard = () => {
                   onClick={() => navigate(`/ticket/${ticket.id}`)}
                 >
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-[#1967D2]">{ticket.id}</div>
+                    <div className="text-sm font-medium text-gcp-blue">{ticket.id}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{ticket.date}</div>
@@ -122,7 +122,7 @@ export const Dashboard = () => {
                           e.stopPropagation();
                           navigate(`/ticket/${ticket.id}`);
                         }}
-                        className="text-[#1967D2] hover:text-[#1557B0] transition-colors"
+                        className="text-gcp-blue hover:text-gcp-blue-hover transition-colors"
                         title="View Details"
                       >
                         <Eye size={18} />

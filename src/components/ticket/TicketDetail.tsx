@@ -83,7 +83,7 @@ export const TicketDetail = () => {
       return 'bg-green-600';
     }
     if (step.completed) {
-      return 'bg-[#1967D2]';
+      return 'bg-gcp-blue';
     }
     return 'bg-gray-300';
   };
@@ -96,7 +96,7 @@ export const TicketDetail = () => {
           <p className="text-gray-600">Ticket not found</p>
           <button
             onClick={() => navigate('/')}
-            className="mt-4 px-6 py-2 bg-[#1967D2] text-white rounded hover:bg-[#1557B0] transition-colors"
+            className="mt-4 px-6 py-2 bg-gcp-blue text-white rounded hover:bg-gcp-blue-hover transition-colors"
           >
             Back to Dashboard
           </button>
@@ -125,7 +125,7 @@ export const TicketDetail = () => {
         </div>
         {id === 'new' && (
           <button
-            className="px-6 py-2.5 bg-[#1967D2] text-white rounded hover:bg-[#1557B0] transition-colors font-medium"
+            className="px-6 py-2.5 bg-gcp-blue text-white rounded hover:bg-gcp-blue-hover transition-colors font-medium"
             onClick={() => {
               // Save functionality would go here
               // In a real application, this would send data to backend
@@ -143,7 +143,7 @@ export const TicketDetail = () => {
           {/* Receipt Upload */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">Receipt</h2>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#1967D2] transition-colors">
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gcp-blue transition-colors">
               {selectedFile || ticket.receiptImage ? (
                 <div className="space-y-4">
                   <img
@@ -252,7 +252,7 @@ export const TicketDetail = () => {
                 type="text"
                 value={ticket.description || ''}
                 onChange={(e) => setTicket({ ...ticket, description: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[#1967D2] focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gcp-blue focus:border-transparent"
                 placeholder="Brief description of the expense"
                 disabled={id !== 'new'}
               />
@@ -266,7 +266,7 @@ export const TicketDetail = () => {
                 value={ticket.notes || ''}
                 onChange={(e) => setTicket({ ...ticket, notes: e.target.value })}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[#1967D2] focus:border-transparent resize-none"
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-gcp-blue focus:border-transparent resize-none"
                 placeholder="Add any additional notes or comments..."
                 disabled={id !== 'new'}
               />
@@ -287,7 +287,7 @@ export const TicketDetail = () => {
                   {index < timelineSteps.length - 1 && (
                     <div
                       className={`absolute left-5 top-11 w-0.5 h-full -ml-px ${
-                        step.completed ? 'bg-[#1967D2]' : 'bg-gray-300'
+                        step.completed ? 'bg-gcp-blue' : 'bg-gray-300'
                       }`}
                     />
                   )}
