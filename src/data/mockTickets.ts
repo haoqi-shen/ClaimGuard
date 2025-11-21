@@ -1,9 +1,16 @@
 import type { Ticket } from '../types/ticket';
 
+// Helper function to get date relative to today
+const getRelativeDate = (daysAgo: number): string => {
+  const date = new Date();
+  date.setDate(date.getDate() - daysAgo);
+  return date.toISOString().split('T')[0];
+};
+
 export const mockTickets: Ticket[] = [
   {
     id: 'CLM-001',
-    date: '2025-11-15',
+    date: getRelativeDate(6),
     category: 'Travel',
     amount: 450.00,
     status: 'Approved',
@@ -12,7 +19,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-002',
-    date: '2025-11-18',
+    date: getRelativeDate(3),
     category: 'Meals',
     amount: 85.50,
     status: 'Under Agent Review',
@@ -21,7 +28,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-003',
-    date: '2025-11-19',
+    date: getRelativeDate(2),
     category: 'Accommodation',
     amount: 320.00,
     status: 'Pending Approval',
@@ -30,7 +37,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-004',
-    date: '2025-11-20',
+    date: getRelativeDate(1),
     category: 'Office Supplies',
     amount: 125.75,
     status: 'Pending',
@@ -39,7 +46,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-005',
-    date: '2025-11-17',
+    date: getRelativeDate(4),
     category: 'Transport',
     amount: 45.00,
     status: 'Not Approved',
@@ -48,7 +55,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-006',
-    date: '2025-11-16',
+    date: getRelativeDate(5),
     category: 'Training',
     amount: 1200.00,
     status: 'Approved',
@@ -57,7 +64,7 @@ export const mockTickets: Ticket[] = [
   },
   {
     id: 'CLM-007',
-    date: '2025-11-21',
+    date: getRelativeDate(0),
     category: 'Meals',
     amount: 32.50,
     status: 'Pending',

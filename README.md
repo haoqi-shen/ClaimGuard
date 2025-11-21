@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# ClaimGuard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-agent, multi-source grounded audit engine for reliable extraction and policy-aware validation of expense claims.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ClaimGuard is a modern SAP Fiori-inspired expense management system built with React, TypeScript, and TailwindCSS. It provides employees with an intuitive interface to submit, track, and manage their expense claims with a comprehensive workflow approval system.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dashboard View**: High-density table displaying all expense claims with summary metrics
+- **Ticket Detail View**: Comprehensive claim management with receipt upload and approval workflow
+- **Workflow Timeline**: Visual representation of claim status through the approval process
+- **Receipt Management**: Easy upload and management of receipt images
+- **Status Tracking**: Real-time tracking of claims through multiple approval stages
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+ and npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start the development server
+npm run dev
 ```
+
+The application will be available at `http://localhost:5173/`
+
+### Build for Production
+
+```bash
+# Create production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── dashboard/       # Dashboard with claims table
+│   ├── layout/          # Layout components (TopNav, Sidebar, MainLayout)
+│   └── ticket/          # Ticket detail view with workflow timeline
+├── data/                # Mock data for development
+├── types/               # TypeScript type definitions
+├── App.tsx              # Main application with routing
+└── main.tsx             # Application entry point
+```
+
+## Technology Stack
+
+- **React 18**: Modern UI library
+- **TypeScript**: Type-safe development
+- **Vite**: Fast build tool and dev server
+- **TailwindCSS v4**: Utility-first CSS framework
+- **React Router**: Client-side routing
+- **Lucide React**: Icon library
+
+## License
+
+MIT

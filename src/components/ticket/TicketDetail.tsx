@@ -4,31 +4,29 @@ import { ArrowLeft, Upload, Check, Clock, X, AlertCircle } from 'lucide-react';
 import { mockTickets } from '../../data/mockTickets';
 import type { Ticket, TicketStatus } from '../../types/ticket';
 
+const getInitialTicket = (id: string | undefined): Ticket | null => {
+  if (id === 'new') {
+    return {
+      id: `CLM-${String(mockTickets.length + 1).padStart(3, '0')}`,
+      date: new Date().toISOString().split('T')[0],
+      category: 'Travel',
+      amount: 0,
+      status: 'Pending',
+      notes: '',
+      description: '',
+    };
+  }
+  return mockTickets.find(t => t.id === id) || null;
+};
+
 export const TicketDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [ticket, setTicket] = useState<Ticket | null>(null);
+  const [ticket, setTicket] = useState<Ticket | null>(() => getInitialTicket(id));
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   useEffect(() => {
-    if (id === 'new') {
-      // Initialize new ticket
-      setTicket({
-        id: `CLM-${String(mockTickets.length + 1).padStart(3, '0')}`,
-        date: new Date().toISOString().split('T')[0],
-        category: 'Travel',
-        amount: 0,
-        status: 'Pending',
-        notes: '',
-        description: '',
-      });
-    } else {
-      // Load existing ticket
-      const foundTicket = mockTickets.find(t => t.id === id);
-      if (foundTicket) {
-        setTicket(foundTicket);
-      }
-    }
+    setTicket(getInitialTicket(id));
   }, [id]);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -130,7 +128,7 @@ export const TicketDetail = () => {
             className="px-6 py-2 bg-[#4A90E2] text-white rounded-lg hover:bg-[#357ABD] transition-colors font-medium"
             onClick={() => {
               // Save functionality would go here
-              alert('Claim submitted successfully!');
+              // In a real application, this would send data to backend
               navigate('/');
             }}
           >
