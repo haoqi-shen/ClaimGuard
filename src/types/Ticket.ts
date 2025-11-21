@@ -22,4 +22,5 @@ export const statusLabels: Record<TicketStatus, string> = {
   not_approved: 'Not Approved',
 };
 
+// Status order for the workflow timeline (not_approved is handled separately as a terminal state)
 export const statusOrder: TicketStatus[] = ['pending', 'under_review', 'pending_approval', 'approved'];

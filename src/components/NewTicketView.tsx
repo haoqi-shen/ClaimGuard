@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import type { Ticket, TicketStatus } from '../types/Ticket';
 
 interface NewTicketViewProps {
@@ -33,7 +34,7 @@ const NewTicketView: React.FC<NewTicketViewProps> = ({ onCreateTicket }) => {
     e.preventDefault();
     
     const newTicket: Ticket = {
-      id: `CLM-${Date.now().toString().slice(-6)}`,
+      id: `CLM-${uuidv4().slice(0, 8).toUpperCase()}`,
       ...formData,
       receiptUrl,
       status: 'pending' as TicketStatus,

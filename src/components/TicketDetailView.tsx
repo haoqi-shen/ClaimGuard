@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Ticket } from '../types/Ticket';
 import StatusTimeline from './StatusTimeline';
 
@@ -10,6 +10,13 @@ interface TicketDetailViewProps {
 const TicketDetailView: React.FC<TicketDetailViewProps> = ({ ticket, onUpdate }) => {
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState(ticket || {} as Ticket);
+
+  useEffect(() => {
+    if (ticket) {
+      setFormData(ticket);
+      setEditMode(false);
+    }
+  }, [ticket]);
 
   if (!ticket) {
     return (
