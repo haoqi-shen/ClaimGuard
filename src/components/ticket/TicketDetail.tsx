@@ -80,23 +80,23 @@ export const TicketDetail = () => {
       return 'bg-red-500';
     }
     if (step.isFinal) {
-      return 'bg-green-500';
+      return 'bg-green-600';
     }
     if (step.completed) {
-      return 'bg-blue-500';
+      return 'bg-[#1967D2]';
     }
     return 'bg-gray-300';
   };
 
   if (!ticket) {
     return (
-      <div className="flex items-center justify-center h-full">
+      <div className="flex items-center justify-center h-full bg-gray-50">
         <div className="text-center">
           <AlertCircle size={48} className="mx-auto text-gray-400 mb-4" />
           <p className="text-gray-600">Ticket not found</p>
           <button
             onClick={() => navigate('/')}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="mt-4 px-6 py-2 bg-[#1967D2] text-white rounded hover:bg-[#1557B0] transition-colors"
           >
             Back to Dashboard
           </button>
@@ -108,24 +108,24 @@ export const TicketDetail = () => {
   const timelineSteps = getTimelineSteps(ticket.status);
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-8 max-w-7xl mx-auto bg-gray-50 min-h-full">
       {/* Header */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate('/')}
-            className="text-gray-600 hover:text-gray-800 transition-colors"
+            className="text-gray-600 hover:text-gray-900 transition-colors p-2 hover:bg-white rounded-full"
           >
             <ArrowLeft size={24} />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">{ticket.id}</h1>
+            <h1 className="text-3xl font-normal text-gray-900">{ticket.id}</h1>
             <p className="text-gray-600 text-sm">Expense Claim Details</p>
           </div>
         </div>
         {id === 'new' && (
           <button
-            className="px-6 py-2 bg-[#4A90E2] text-white rounded-lg hover:bg-[#357ABD] transition-colors font-medium"
+            className="px-6 py-2.5 bg-[#1967D2] text-white rounded hover:bg-[#1557B0] transition-colors font-medium"
             onClick={() => {
               // Save functionality would go here
               // In a real application, this would send data to backend
@@ -141,9 +141,9 @@ export const TicketDetail = () => {
         {/* Left Column - Claim Details */}
         <div className="col-span-2 space-y-6">
           {/* Receipt Upload */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">Receipt</h2>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+          <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <h2 className="text-lg font-medium text-gray-900 mb-4">Receipt</h2>
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#1967D2] transition-colors">
               {selectedFile || ticket.receiptImage ? (
                 <div className="space-y-4">
                   <img
@@ -252,7 +252,7 @@ export const TicketDetail = () => {
                 type="text"
                 value={ticket.description || ''}
                 onChange={(e) => setTicket({ ...ticket, description: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[#1967D2] focus:border-transparent"
                 placeholder="Brief description of the expense"
                 disabled={id !== 'new'}
               />
@@ -266,7 +266,7 @@ export const TicketDetail = () => {
                 value={ticket.notes || ''}
                 onChange={(e) => setTicket({ ...ticket, notes: e.target.value })}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-[#1967D2] focus:border-transparent resize-none"
                 placeholder="Add any additional notes or comments..."
                 disabled={id !== 'new'}
               />
@@ -276,8 +276,8 @@ export const TicketDetail = () => {
 
         {/* Right Column - Status Timeline */}
         <div className="col-span-1">
-          <div className="bg-white rounded-lg shadow p-6 sticky top-6">
-            <h2 className="text-lg font-semibold text-gray-800 mb-6">Claim Status</h2>
+          <div className="bg-white rounded-lg border border-gray-200 p-6 sticky top-6">
+            <h2 className="text-lg font-medium text-gray-900 mb-6">Claim Status</h2>
             
             {/* Vertical Timeline */}
             <div className="relative">
@@ -287,7 +287,7 @@ export const TicketDetail = () => {
                   {index < timelineSteps.length - 1 && (
                     <div
                       className={`absolute left-5 top-11 w-0.5 h-full -ml-px ${
-                        step.completed ? 'bg-blue-500' : 'bg-gray-300'
+                        step.completed ? 'bg-[#1967D2]' : 'bg-gray-300'
                       }`}
                     />
                   )}
@@ -307,10 +307,10 @@ export const TicketDetail = () => {
                         <p className="text-xs text-gray-500 mt-1">Current Status</p>
                       )}
                       {step.isFinal && (
-                        <p className="text-xs text-green-600 mt-1 font-medium">Completed</p>
+                        <p className="text-xs text-green-700 mt-1 font-medium">Completed</p>
                       )}
                       {step.status === 'Not Approved' && (
-                        <p className="text-xs text-red-600 mt-1 font-medium">Rejected</p>
+                        <p className="text-xs text-red-700 mt-1 font-medium">Rejected</p>
                       )}
                     </div>
                   </div>
@@ -323,15 +323,15 @@ export const TicketDetail = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Submitted:</span>
-                  <span className="font-medium">{ticket.date}</span>
+                  <span className="font-medium text-gray-900">{ticket.date}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Amount:</span>
-                  <span className="font-medium">${ticket.amount.toFixed(2)}</span>
+                  <span className="font-medium text-gray-900">${ticket.amount.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Category:</span>
-                  <span className="font-medium">{ticket.category}</span>
+                  <span className="font-medium text-gray-900">{ticket.category}</span>
                 </div>
               </div>
             </div>

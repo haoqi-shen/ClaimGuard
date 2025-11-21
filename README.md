@@ -4,7 +4,7 @@ A multi-agent, multi-source grounded audit engine for reliable extraction and po
 
 ## Overview
 
-ClaimGuard is a modern SAP Fiori-inspired expense management system built with React, TypeScript, and TailwindCSS. It provides employees with an intuitive interface to submit, track, and manage their expense claims with a comprehensive workflow approval system.
+ClaimGuard is a modern Google Cloud Platform-inspired expense management system built with React, TypeScript, and TailwindCSS. It provides employees with an intuitive interface to submit, track, and manage their expense claims with a comprehensive workflow approval system.
 
 ## Features
 
