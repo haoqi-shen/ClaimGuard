@@ -150,11 +150,15 @@ Similar endpoints for spend authorizations at `/api/spend/authorizations/*`
 
 ## Security Features
 
-- Input validation and sanitization
-- Receipt requirement enforcement
-- Audit trail for all state changes
-- Multi-dimensional financial validation
-- Secure file upload handling
+- **Rate Limiting**: API endpoints protected with configurable rate limits
+  - General API: 100 requests per 15 minutes
+  - Write operations: 20 requests per 15 minutes
+  - Authentication: 5 attempts per 15 minutes
+- **Input Validation**: Server-side validation for all data inputs
+- **Receipt Enforcement**: Mandatory receipts for expenses over $75
+- **Audit Trail**: Complete logging of all state changes
+- **Financial Validation**: Multi-dimensional expense allocation checks
+- **Secure File Uploads**: Type validation and secure storage handling
 
 ## Development
 
