@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Successfully implemented a comprehensive Workday-style expense reporting system for Worcester Polytechnic Institute (WPI). The system provides complete functionality for submitting, tracking, and processing employee expense reimbursements with enterprise-grade features.
+Successfully implemented a comprehensive Workday-style expense reporting system for Avo.ai. The system provides complete functionality for submitting, tracking, and processing employee expense reimbursements with enterprise-grade features.
 
 ## What Was Built
 
@@ -15,7 +15,7 @@ Implemented features:
 - 7 application launcher tiles with icons:
   - Favorites ⭐, Career 💼, Payroll 💰, Absence 📅
   - Purchases 🛒, Expenses 📊, Benefits 🎁
-- Full WPI institutional branding (red #ac2b37 and white)
+- Full Avo.ai institutional branding (red #ac2b37 and white)
 - Responsive grid layout
 
 ### 2. Expense Hub ✅
@@ -46,7 +46,7 @@ Implemented features:
   - Personal, Cash Advance, Reimbursement, Total amounts
 - Required fields notice (yellow banner)
 - Expense Report Information:
-  - Company (pre-filled: Worcester Polytechnic Institute - WPI)
+  - Company (pre-filled: Avo.ai)
   - Report Date (date picker)
   - Business Purpose (dropdown with 6 options)
 - Expense Report Reference Information:
@@ -256,7 +256,7 @@ frontend/
 3. **Enterprise Quality**: Rate limiting, validation, audit trails
 4. **Clean Code**: TypeScript, modular, well-documented
 5. **Security**: All CodeQL vulnerabilities resolved
-6. **UX**: Toast notifications, responsive design, WPI branding
+6. **UX**: Toast notifications, responsive design, Avo.ai branding
 
 ## Performance Metrics
 

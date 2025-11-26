@@ -87,7 +87,7 @@ To run both backend and frontend simultaneously:
 
 The application uses a demo user:
 - Name: Veronica Brandstrader
-- Company: Worcester Polytechnic Institute - WPI
+- Company: Avo.ai
 
 ## Features Implemented
 
@@ -99,7 +99,7 @@ The application uses a demo user:
 - ✅ Receipt requirement enforcement ($75+ threshold)
 - ✅ Multi-dimensional expense allocation (Cost Center, Fund, Worktags)
 - ✅ Draft saving capability
-- ✅ WPI branding and styling
+- ✅ Avo.ai branding and styling
 
 ## Project Structure
 

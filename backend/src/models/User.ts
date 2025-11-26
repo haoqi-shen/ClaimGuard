@@ -21,7 +21,7 @@ const UserSchema: Schema = new Schema(
     lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     department: { type: String, required: true },
-    company: { type: String, default: 'Worcester Polytechnic Institute - WPI' },
+    company: { type: String, default: 'Avo.ai' },
     password: { type: String, select: false },
     role: { type: String, enum: ['employee', 'manager', 'admin'], default: 'employee' },
     paymentMethod: { type: String, enum: ['check', 'direct_deposit'], default: 'check' }

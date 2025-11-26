@@ -17,7 +17,7 @@ const CreateExpenseReport: React.FC<CreateExpenseReportProps> = ({ onBack, userN
   
   const [formData, setFormData] = useState<Partial<ExpenseReport>>({
     employeeName: userName,
-    company: 'Worcester Polytechnic Institute - WPI',
+    company: 'Avo.ai',
     reportDate: new Date().toISOString().split('T')[0] as any,
     reimbursementPaymentType: 'check',
     status: 'draft',
