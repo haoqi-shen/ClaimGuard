@@ -20,7 +20,7 @@ export interface IExpenseReportLine {
     fileName: string;
     fileUrl: string;
     fileType: string;
-    uploadDate: Date;
+    uploadDate: Date | string;
     comment?: string;
   }>;
   receiptIncluded: boolean;
@@ -72,7 +72,7 @@ const ExpenseReportLineSchema: Schema = new Schema({
     fileName: String,
     fileUrl: String,
     fileType: String,
-    uploadDate: Date,
+    uploadDate: { type: Date, default: Date.now },
     comment: String
   }],
   receiptIncluded: { type: Boolean, default: false },

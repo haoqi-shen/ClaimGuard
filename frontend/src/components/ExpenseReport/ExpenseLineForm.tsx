@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ExpenseLineForm.css';
 import { ExpenseReportLine } from '../../types';
+import Toast, { ToastType } from '../Common/Toast';
 
 interface ExpenseLineFormProps {
   onSave: (line: ExpenseReportLine) => void;
@@ -23,6 +24,7 @@ const ExpenseLineForm: React.FC<ExpenseLineFormProps> = ({ onSave, onCancel, ini
 
   const [attachmentFile, setAttachmentFile] = useState<File | null>(null);
   const [attachmentComment, setAttachmentComment] = useState('');
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null);
 
   // Expense items with default rates
   const expenseItems = [
@@ -123,31 +125,31 @@ const ExpenseLineForm: React.FC<ExpenseLineFormProps> = ({ onSave, onCancel, ini
   const handleSave = () => {
     // Validate required fields
     if (!lineData.date) {
-      alert('Date is required');
+      setToast({ message: 'Date is required', type: 'error' });
       return;
     }
     if (!lineData.expenseItem) {
-      alert('Expense item is required');
+      setToast({ message: 'Expense item is required', type: 'error' });
       return;
     }
     if (!lineData.quantity || lineData.quantity <= 0) {
-      alert('Quantity must be greater than 0');
+      setToast({ message: 'Quantity must be greater than 0', type: 'error' });
       return;
     }
     if (!lineData.memo) {
-      alert('Memo is required');
+      setToast({ message: 'Memo is required', type: 'error' });
       return;
     }
     if (!lineData.costCenter) {
-      alert('Cost center is required');
+      setToast({ message: 'Cost center is required', type: 'error' });
       return;
     }
     if (!lineData.fund) {
-      alert('Fund is required');
+      setToast({ message: 'Fund is required', type: 'error' });
       return;
     }
     if (!lineData.businessReason) {
-      alert('Business reason is required');
+      setToast({ message: 'Business reason is required', type: 'error' });
       return;
     }
 
@@ -156,6 +158,13 @@ const ExpenseLineForm: React.FC<ExpenseLineFormProps> = ({ onSave, onCancel, ini
 
   return (
     <div className="expense-line-form">
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
       <header className="form-header">
         <button className="back-button" onClick={onCancel}>← Back</button>
         <h1>{initialData ? 'Edit' : 'Add'} Expense Line</h1>

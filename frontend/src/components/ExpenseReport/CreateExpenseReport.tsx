@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './CreateExpenseReport.css';
 import { ExpenseReport, ExpenseReportLine } from '../../types';
 import ExpenseLineForm from './ExpenseLineForm';
+import Toast, { ToastType } from '../Common/Toast';
 
 interface CreateExpenseReportProps {
   onBack: () => void;
@@ -12,6 +13,7 @@ const CreateExpenseReport: React.FC<CreateExpenseReportProps> = ({ onBack, userN
   const [activeTab, setActiveTab] = useState<'lines' | 'attachments'>('lines');
   const [showLineForm, setShowLineForm] = useState(false);
   const [editingLineIndex, setEditingLineIndex] = useState<number | null>(null);
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null);
   
   const [formData, setFormData] = useState<Partial<ExpenseReport>>({
     employeeName: userName,
@@ -69,34 +71,37 @@ const CreateExpenseReport: React.FC<CreateExpenseReportProps> = ({ onBack, userN
   const handleSubmit = () => {
     // Validate required fields
     if (!formData.businessPurpose) {
-      alert('Business purpose is required');
+      setToast({ message: 'Business purpose is required', type: 'error' });
       return;
     }
     if (!formData.memo) {
-      alert('Memo is required');
+      setToast({ message: 'Memo is required', type: 'error' });
       return;
     }
     if (!formData.expenseLines || formData.expenseLines.length === 0) {
-      alert('At least one expense line is required');
+      setToast({ message: 'At least one expense line is required', type: 'error' });
       return;
     }
 
     // Check receipt requirements
     for (const line of formData.expenseLines) {
       if (line.totalAmount > 75 && !line.receiptIncluded) {
-        alert(`Receipt required for ${line.expenseItem} (amount: $${line.totalAmount})`);
+        setToast({ 
+          message: `Receipt required for ${line.expenseItem} (amount: $${line.totalAmount})`,
+          type: 'warning'
+        });
         return;
       }
     }
 
     // Submit the expense report
-    alert('Expense report submitted successfully!');
-    onBack();
+    setToast({ message: 'Expense report submitted successfully!', type: 'success' });
+    setTimeout(() => onBack(), 1500);
   };
 
   const handleSaveForLater = () => {
-    alert('Expense report saved as draft');
-    onBack();
+    setToast({ message: 'Expense report saved as draft', type: 'success' });
+    setTimeout(() => onBack(), 1500);
   };
 
   if (showLineForm) {
@@ -114,6 +119,13 @@ const CreateExpenseReport: React.FC<CreateExpenseReportProps> = ({ onBack, userN
 
   return (
     <div className="create-expense-report">
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
       <header className="expense-report-header">
         <button className="back-button" onClick={onBack}>← Back to Expense Hub</button>
         <h1>Create Expense Report</h1>
