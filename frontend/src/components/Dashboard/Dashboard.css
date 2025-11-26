@@ -13,12 +13,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.wpi-logo {
+.brand-logo {
   display: flex;
   align-items: center;
 }
 
-.wpi-text {
+.brand-text {
   font-size: 28px;
   font-weight: bold;
   letter-spacing: 2px;

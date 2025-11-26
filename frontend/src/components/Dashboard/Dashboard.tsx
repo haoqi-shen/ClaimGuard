@@ -48,8 +48,8 @@ const Dashboard: React.FC<DashboardProps> = ({ userName, onNavigate }) => {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <div className="wpi-logo">
-          <span className="wpi-text">WPI</span>
+        <div className="brand-logo">
+          <span className="brand-text">Avo.ai</span>
         </div>
         <div className="user-info">
           <span className="welcome-text">Welcome, {userName}</span>

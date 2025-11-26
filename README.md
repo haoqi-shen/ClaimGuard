@@ -1,6 +1,6 @@
 # ClaimGuard
 
-A comprehensive enterprise expense management system built on the Workday platform for Worcester Polytechnic Institute (WPI). ClaimGuard follows a multi-tier workflow design for submitting, tracking, and processing employee expense reimbursements.
+A comprehensive enterprise expense management system built on the Workday platform for Avo.ai. ClaimGuard follows a multi-tier workflow design for submitting, tracking, and processing employee expense reimbursements.
 
 ## Overview
 
@@ -18,7 +18,7 @@ ClaimGuard is a full-stack expense reporting system that provides:
 - Personalized welcome interface
 - Inbox widget with pending tasks and notifications
 - Quick-access application launcher with tiles (Favorites, Career, Payroll, Absence, Purchases, Expenses, Benefits)
-- WPI institutional branding
+- Avo.ai institutional branding
 
 ### 2. Expense Hub
 - **Actions**: Create/Edit Expense Reports and Spend Authorizations
@@ -209,4 +209,4 @@ For issues and questions:
 
 ## Acknowledgments
 
-Built for Worcester Polytechnic Institute (WPI) based on Workday expense management workflows.
+Built for Avo.ai based on Workday expense management workflows.

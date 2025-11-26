@@ -48,7 +48,7 @@ const SpendAuthorizationSchema: Schema = new Schema(
     authorizationId: { type: String, required: true, unique: true },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     employeeName: { type: String, required: true },
-    company: { type: String, default: 'Worcester Polytechnic Institute - WPI' },
+    company: { type: String, default: 'Avo.ai' },
     authorizationDate: { type: Date, required: true },
     businessPurpose: { type: String, required: true },
     memo: { type: String },

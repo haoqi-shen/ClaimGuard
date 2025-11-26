@@ -84,7 +84,7 @@ const ExpenseReportSchema: Schema = new Schema(
     reportId: { type: String, required: true, unique: true },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     employeeName: { type: String, required: true },
-    company: { type: String, default: 'Worcester Polytechnic Institute - WPI' },
+    company: { type: String, default: 'Avo.ai' },
     reportDate: { type: Date, required: true },
     businessPurpose: { type: String, required: true },
     reimbursementPaymentType: { type: String, enum: ['check', 'direct_deposit'], required: true },
