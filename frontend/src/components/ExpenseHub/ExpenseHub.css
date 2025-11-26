@@ -1,0 +1,215 @@
+.expense-hub {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.expense-hub-header {
+  background-color: #ac2b37;
+  color: white;
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+}
+
+.expense-hub-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.expense-hub-content {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hub-section {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hub-section h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.action-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.hub-card {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.hub-card:hover {
+  background-color: #f0f0f0;
+  border-color: #ac2b37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.recent-reports {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.report-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.report-item:hover {
+  background-color: #f0f0f0;
+}
+
+.report-info {
+  flex: 1;
+}
+
+.report-id {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.report-purpose {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.report-date {
+  font-size: 13px;
+  color: #999;
+}
+
+.report-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-draft {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.status-submitted {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-paid {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.report-amount {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .expense-hub-content {
+    padding: 15px;
+  }
+
+  .hub-section {
+    padding: 20px;
+  }
+
+  .action-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .report-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .report-status {
+    align-items: flex-start;
+  }
+}
